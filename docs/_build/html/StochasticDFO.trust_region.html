@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StochasticDFO.trust_region package &mdash; StochasticDFO 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="StochasticDFO.trust_region.model_options package" href="StochasticDFO.trust_region.model_options.html" />
+    <link rel="prev" title="StochasticDFO.stochastic_objective package" href="StochasticDFO.stochastic_objective.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            StochasticDFO
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Dcoumentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="StochasticDFO.html">StochasticDFO package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="StochasticDFO.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.design_points.html">StochasticDFO.design_points package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.integrand_evaluations.html">StochasticDFO.integrand_evaluations package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.regression.html">StochasticDFO.regression package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.stochastic_objective.html">StochasticDFO.stochastic_objective package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">StochasticDFO.trust_region package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="StochasticDFO.html#module-StochasticDFO">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">StochasticDFO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">API Dcoumentation</a></li>
+          <li class="breadcrumb-item"><a href="StochasticDFO.html">StochasticDFO package</a></li>
+      <li class="breadcrumb-item active">StochasticDFO.trust_region package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/StochasticDFO.trust_region.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="stochasticdfo-trust-region-package">
+<h1>StochasticDFO.trust_region package<a class="headerlink" href="#stochasticdfo-trust-region-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html">StochasticDFO.trust_region.model_options package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html#module-StochasticDFO.trust_region.model_options.options">StochasticDFO.trust_region.model_options.options module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html#StochasticDFO.trust_region.model_options.options.Options"><code class="docutils literal notranslate"><span class="pre">Options</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html#StochasticDFO.trust_region.model_options.options.Options.ABS_TOL"><code class="docutils literal notranslate"><span class="pre">Options.ABS_TOL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html#StochasticDFO.trust_region.model_options.options.Options.DESIGN_REGION_RADIUS"><code class="docutils literal notranslate"><span class="pre">Options.DESIGN_REGION_RADIUS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html#StochasticDFO.trust_region.model_options.options.Options.DESIGN_REGION_RADIUS_MIN"><code class="docutils literal notranslate"><span class="pre">Options.DESIGN_REGION_RADIUS_MIN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html#StochasticDFO.trust_region.model_options.options.Options.GAMMA_0"><code class="docutils literal notranslate"><span class="pre">Options.GAMMA_0</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html#StochasticDFO.trust_region.model_options.options.Options.GAMMA_1"><code class="docutils literal notranslate"><span class="pre">Options.GAMMA_1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html#StochasticDFO.trust_region.model_options.options.Options.K_DELTA"><code class="docutils literal notranslate"><span class="pre">Options.K_DELTA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html#StochasticDFO.trust_region.model_options.options.Options.K_SIGMA"><code class="docutils literal notranslate"><span class="pre">Options.K_SIGMA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html#StochasticDFO.trust_region.model_options.options.Options.PRINTLEVEL"><code class="docutils literal notranslate"><span class="pre">Options.PRINTLEVEL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html#StochasticDFO.trust_region.model_options.options.Options.REL_TOL"><code class="docutils literal notranslate"><span class="pre">Options.REL_TOL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html#StochasticDFO.trust_region.model_options.options.Options.SAMPLE_SIZE"><code class="docutils literal notranslate"><span class="pre">Options.SAMPLE_SIZE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html#StochasticDFO.trust_region.model_options.options.Options.SAMPLE_SIZE_INCREMENT"><code class="docutils literal notranslate"><span class="pre">Options.SAMPLE_SIZE_INCREMENT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html#module-StochasticDFO.trust_region.model_options.validate_options">StochasticDFO.trust_region.model_options.validate_options module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html#StochasticDFO.trust_region.model_options.validate_options.OptionsValidator"><code class="docutils literal notranslate"><span class="pre">OptionsValidator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html#StochasticDFO.trust_region.model_options.validate_options.OptionsValidator.check_set_options"><code class="docutils literal notranslate"><span class="pre">OptionsValidator.check_set_options()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="StochasticDFO.trust_region.model_options.html#module-StochasticDFO.trust_region.model_options">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html">StochasticDFO.trust_region.trust_region_options package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#module-StochasticDFO.trust_region.trust_region_options.options">StochasticDFO.trust_region.trust_region_options.options module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.options.Options"><code class="docutils literal notranslate"><span class="pre">Options</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.options.Options.ABS_TOL"><code class="docutils literal notranslate"><span class="pre">Options.ABS_TOL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.options.Options.ETA_0"><code class="docutils literal notranslate"><span class="pre">Options.ETA_0</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.options.Options.ETA_1"><code class="docutils literal notranslate"><span class="pre">Options.ETA_1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.options.Options.GAMMA_0"><code class="docutils literal notranslate"><span class="pre">Options.GAMMA_0</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.options.Options.GAMMA_1"><code class="docutils literal notranslate"><span class="pre">Options.GAMMA_1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.options.Options.KAPPA_EASY"><code class="docutils literal notranslate"><span class="pre">Options.KAPPA_EASY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.options.Options.KAPPA_HARD"><code class="docutils literal notranslate"><span class="pre">Options.KAPPA_HARD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.options.Options.MAX_ITER"><code class="docutils literal notranslate"><span class="pre">Options.MAX_ITER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.options.Options.PRINTLEVEL"><code class="docutils literal notranslate"><span class="pre">Options.PRINTLEVEL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.options.Options.REL_TOL"><code class="docutils literal notranslate"><span class="pre">Options.REL_TOL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.options.Options.SUBPROB_MAX_ITER"><code class="docutils literal notranslate"><span class="pre">Options.SUBPROB_MAX_ITER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.options.Options.SUBPROB_OPT_CHECK"><code class="docutils literal notranslate"><span class="pre">Options.SUBPROB_OPT_CHECK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.options.Options.SUBPROB_REGULARIZATION"><code class="docutils literal notranslate"><span class="pre">Options.SUBPROB_REGULARIZATION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.options.Options.TRUST_REGION_RADIUS"><code class="docutils literal notranslate"><span class="pre">Options.TRUST_REGION_RADIUS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.options.Options.TRUST_REGION_RADIUS_MAX"><code class="docutils literal notranslate"><span class="pre">Options.TRUST_REGION_RADIUS_MAX</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.options.Options.TRUST_REGION_RADIUS_MIN"><code class="docutils literal notranslate"><span class="pre">Options.TRUST_REGION_RADIUS_MIN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#module-StochasticDFO.trust_region.trust_region_options.validate_options">StochasticDFO.trust_region.trust_region_options.validate_options module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.validate_options.OptionsValidator"><code class="docutils literal notranslate"><span class="pre">OptionsValidator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#StochasticDFO.trust_region.trust_region_options.validate_options.OptionsValidator.check_set_options"><code class="docutils literal notranslate"><span class="pre">OptionsValidator.check_set_options()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="StochasticDFO.trust_region.trust_region_options.html#module-StochasticDFO.trust_region.trust_region_options">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-StochasticDFO.trust_region.base_model">
+<span id="stochasticdfo-trust-region-base-model-module"></span><h2>StochasticDFO.trust_region.base_model module<a class="headerlink" href="#module-StochasticDFO.trust_region.base_model" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.base_model.BaseModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BaseModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.base_model.BaseModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for constructing quadratic model for trust-region method.
+The function value, gradient, and Hessian at a point <code class="docutils literal notranslate"><span class="pre">x</span></code> are
+computed on the fly, and stored in attributes <code class="docutils literal notranslate"><span class="pre">value</span></code>, <code class="docutils literal notranslate"><span class="pre">grad</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">hessian</span></code>, respectively.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.base_model.BaseModel.dim">
+<span class="sig-name descname"><span class="pre">dim</span></span><a class="headerlink" href="#StochasticDFO.trust_region.base_model.BaseModel.dim" title="Link to this definition"></a></dt>
+<dd><p>Dimension of the space</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Positive integer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.base_model.BaseModel.options">
+<span class="sig-name descname"><span class="pre">options</span></span><a class="headerlink" href="#StochasticDFO.trust_region.base_model.BaseModel.options" title="Link to this definition"></a></dt>
+<dd><p>Model options</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict; optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">options</span> <span class="pre">are</span></span></dt>
+<dd><dl class="simple">
+<dt>design_region_radius: float</dt><dd><p>Initial design region radius</p>
+</dd>
+<dt>design_region_radius_min: float</dt><dd><p>Minimum value of design region radius.
+If the design region radius falls below
+this value, the algorithm stops.</p>
+</dd>
+<dt>gamma_0: float</dt><dd><p>Factor by which the design region radius will
+be scaled down. This parameter takes values in
+(0,1).</p>
+</dd>
+<dt>k_delta: float</dt><dd><p>Parameter used to check the accuracy of derivatives.</p>
+</dd>
+<dt>k_sigma: float</dt><dd><p>Parameter used to check if sample-size is sufficiently large.</p>
+</dd>
+<dt>abs_tol: float</dt><dd><p>Absolute tolerance.</p>
+</dd>
+<dt>rel_tol: float</dt><dd><p>Relative tolerance.</p>
+</dd>
+<dt>sample_size: int</dt><dd><p>The initial sample-size</p>
+</dd>
+<dt>sample_size_increment: int</dt><dd><p>The value by which the sample-size will be incremented.</p>
+</dd>
+<dt>printlevel: int</dt><dd><p>The level of verbosity of the output. Takes values
+1,2, and 3, with 1 being the minimum level of verbosity,
+and 3 the maximum level of verbosity.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.base_model.BaseModel.check_design_radius">
+<span class="sig-name descname"><span class="pre">check_design_radius</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.base_model.BaseModel.check_design_radius" title="Link to this definition"></a></dt>
+<dd><p>Checks that the design region of the model is not too small.
+To be implemented by the child method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>out</strong> – Returns True if the design radius is larger than the threshold
+and False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.base_model.BaseModel.fun_val">
+<span class="sig-name descname"><span class="pre">fun_val</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.base_model.BaseModel.fun_val" title="Link to this definition"></a></dt>
+<dd><p>Returns the actual/estimated value of the true function at point p.
+To be implemented by the child method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>p</strong> (<em>Numpy array</em>) – Point</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>out</strong> – Actual/estimated value of true function at p</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.base_model.BaseModel.increase_grad_accuracy">
+<span class="sig-name descname"><span class="pre">increase_grad_accuracy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.base_model.BaseModel.increase_grad_accuracy" title="Link to this definition"></a></dt>
+<dd><p>Checks if the model’s derivatives are accurate.
+To be implemented by the child method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>d</strong> (<em>Numpy array</em>) – Model step</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>out</strong> – Returns True if the accuracy of the gradients are increased and
+and False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.base_model.BaseModel.increase_sample_accuracy">
+<span class="sig-name descname"><span class="pre">increase_sample_accuracy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.base_model.BaseModel.increase_sample_accuracy" title="Link to this definition"></a></dt>
+<dd><p>Checks if the current sample size is adequate.
+To be implemented by the child method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d</strong> (<em>Numpy array</em>) – Model step</p></li>
+<li><p><strong>x</strong> (<em>Numpy array</em>) – Current iterate</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>out</strong> – Returns True if the sample size is increased and
+and False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.base_model.BaseModel.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.base_model.BaseModel.update" title="Link to this definition"></a></dt>
+<dd><p>Updates the model function value, gradient, and hessian at point x.
+To be implemented by the child method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>Numpy array</em>) – Current iterate</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.base_model.BaseModel.update_sample_size">
+<span class="sig-name descname"><span class="pre">update_sample_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.base_model.BaseModel.update_sample_size" title="Link to this definition"></a></dt>
+<dd><p>Updates the sample size if needed.
+To be implemented by the child method.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.base_model.BaseModel.grad">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">grad</span></span><a class="headerlink" href="#StochasticDFO.trust_region.base_model.BaseModel.grad" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.base_model.BaseModel.hess">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hess</span></span><a class="headerlink" href="#StochasticDFO.trust_region.base_model.BaseModel.hess" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.base_model.BaseModel.value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#StochasticDFO.trust_region.base_model.BaseModel.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-StochasticDFO.trust_region.regression_model">
+<span id="stochasticdfo-trust-region-regression-model-module"></span><h2>StochasticDFO.trust_region.regression_model module<a class="headerlink" href="#module-StochasticDFO.trust_region.regression_model" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.regression_model.RegressionModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RegressionModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">so</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.regression_model.RegressionModel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#StochasticDFO.trust_region.base_model.BaseModel" title="StochasticDFO.trust_region.base_model.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
+<p>Implementation of BaseModel using second-order regression-based
+derivatives. The function value, gradient, and Hessian at a point
+<code class="docutils literal notranslate"><span class="pre">x</span></code> are computed on the fly, and stored in attributes <code class="docutils literal notranslate"><span class="pre">value</span></code>,
+<code class="docutils literal notranslate"><span class="pre">grad</span></code>, and <code class="docutils literal notranslate"><span class="pre">hessian</span></code>, respectively.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.regression_model.RegressionModel.dim">
+<span class="sig-name descname"><span class="pre">dim</span></span><a class="headerlink" href="#StochasticDFO.trust_region.regression_model.RegressionModel.dim" title="Link to this definition"></a></dt>
+<dd><p>Dimension of the space</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.regression_model.RegressionModel.so">
+<span class="sig-name descname"><span class="pre">so</span></span><a class="headerlink" href="#StochasticDFO.trust_region.regression_model.RegressionModel.so" title="Link to this definition"></a></dt>
+<dd><p>Instance of class Stochastic Objective</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>StochasticObjective object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.regression_model.RegressionModel.options">
+<span class="sig-name descname"><span class="pre">options</span></span><a class="headerlink" href="#StochasticDFO.trust_region.regression_model.RegressionModel.options" title="Link to this definition"></a></dt>
+<dd><p>Model options</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict; optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">options</span> <span class="pre">are</span></span></dt>
+<dd><dl class="simple">
+<dt>design_region_radius: float</dt><dd><p>Initial design region radius</p>
+</dd>
+<dt>design_region_radius_min: float</dt><dd><p>Minimum value of design region radius.
+If the design region radius falls below
+this value, the algorithm stops.</p>
+</dd>
+<dt>gamma_0: float</dt><dd><p>Factor by which the design region radius will
+be scaled down. This parameter takes values in
+(0,1).</p>
+</dd>
+<dt>k_delta: float</dt><dd><p>Parameter used to check the accuracy of derivatives.</p>
+</dd>
+<dt>k_sigma: float</dt><dd><p>Parameter used to check if sample-size is sufficiently large.</p>
+</dd>
+<dt>abs_tol: float</dt><dd><p>Absolute tolerance.</p>
+</dd>
+<dt>rel_tol: float</dt><dd><p>Relative tolerance.</p>
+</dd>
+<dt>sample_size: int</dt><dd><p>The initial sample-size</p>
+</dd>
+<dt>sample_size_increment: int</dt><dd><p>The value by which the sample-size will be incremented.</p>
+</dd>
+<dt>printlevel: int</dt><dd><p>The level of verbosity of the output. Takes values
+1,2, and 3, with 1 being the minimum level of verbosity,
+and 3 the maximum level of verbosity.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.regression_model.RegressionModel.check_design_radius">
+<span class="sig-name descname"><span class="pre">check_design_radius</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.regression_model.RegressionModel.check_design_radius" title="Link to this definition"></a></dt>
+<dd><p>Checks that the design region of the model is not too small.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>out</strong> – Returns True if the design radius is larger than the threshold
+and False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.regression_model.RegressionModel.fun_val">
+<span class="sig-name descname"><span class="pre">fun_val</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.regression_model.RegressionModel.fun_val" title="Link to this definition"></a></dt>
+<dd><p>Returns the actual/estimated value of the true function at point p.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>p</strong> (<em>Numpy array</em>) – Point</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>out</strong> – Actual/estimated value of true function at p</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.regression_model.RegressionModel.increase_grad_accuracy">
+<span class="sig-name descname"><span class="pre">increase_grad_accuracy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.regression_model.RegressionModel.increase_grad_accuracy" title="Link to this definition"></a></dt>
+<dd><p>Checks if the model’s derivatives are accurate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>d</strong> (<em>Numpy array</em>) – Model step</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>out</strong> – Returns True if the accuracy of the gradients are increased and
+and False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.regression_model.RegressionModel.increase_sample_accuracy">
+<span class="sig-name descname"><span class="pre">increase_sample_accuracy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.regression_model.RegressionModel.increase_sample_accuracy" title="Link to this definition"></a></dt>
+<dd><p>Checks if the current sample size is adequate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d</strong> (<em>Numpy array</em>) – Model step</p></li>
+<li><p><strong>x</strong> (<em>Numpy array</em>) – Current iterate</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>out</strong> – Returns True if the sample size is increased and
+and False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.regression_model.RegressionModel.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.regression_model.RegressionModel.update" title="Link to this definition"></a></dt>
+<dd><p>Updates the model function value, gradient, and hessian at point x.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>Numpy array</em>) – Current iterate</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.regression_model.RegressionModel.update_sample_size">
+<span class="sig-name descname"><span class="pre">update_sample_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.regression_model.RegressionModel.update_sample_size" title="Link to this definition"></a></dt>
+<dd><p>Updates the sample size if needed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-StochasticDFO.trust_region.tr_subproblem">
+<span id="stochasticdfo-trust-region-tr-subproblem-module"></span><h2>StochasticDFO.trust_region.tr_subproblem module<a class="headerlink" href="#module-StochasticDFO.trust_region.tr_subproblem" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem.TRSubproblem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TRSubproblem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">printlevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem.TRSubproblem" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class to solve the trust region subproblem.
+The gradient, Hessian, and trust region radius
+are stored in  the attributes <code class="docutils literal notranslate"><span class="pre">grad</span></code>, <code class="docutils literal notranslate"><span class="pre">hessian</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">trust_region_radius</span></code>, respectively.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem.TRSubproblem.dim">
+<span class="sig-name descname"><span class="pre">dim</span></span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem.TRSubproblem.dim" title="Link to this definition"></a></dt>
+<dd><p>Dimension of the space</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem.TRSubproblem.printlevel">
+<span class="sig-name descname"><span class="pre">printlevel</span></span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem.TRSubproblem.printlevel" title="Link to this definition"></a></dt>
+<dd><p>The level of verbosity of the output. Takes values
+1,2, and 3, with 1 being the minimum level of verbosity,
+and 3 the maximum level of verbosity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int; optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem.TRSubproblem.opt_check">
+<span class="sig-name descname"><span class="pre">opt_check</span></span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem.TRSubproblem.opt_check" title="Link to this definition"></a></dt>
+<dd><p>If True, calculates the degree of violation of the
+optimality measure for the trust region subproblem
+solution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool; optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem.TRSubproblem.minimizer">
+<span class="sig-name descname"><span class="pre">minimizer</span></span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem.TRSubproblem.minimizer" title="Link to this definition"></a></dt>
+<dd><p>The minimizer of the subproblem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem.TRSubproblem.optimality_measure">
+<span class="sig-name descname"><span class="pre">optimality_measure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem.TRSubproblem.optimality_measure" title="Link to this definition"></a></dt>
+<dd><p>Checks for the optimality conditions on the solution returned by the
+solve method. To be implemented by the child method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>out</strong> – The maximum violation of the optimality measure</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem.TRSubproblem.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trust_region_radius</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem.TRSubproblem.solve" title="Link to this definition"></a></dt>
+<dd><p>Solves the trust region subproblem.
+To be implemented by the child method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>grad</strong> (<em>Numpy array</em>) – Gradient</p></li>
+<li><p><strong>hess</strong> (<em>Numpy array</em>) – Hessian matrix</p></li>
+<li><p><strong>trust_region_radius</strong> (<em>float</em>) – The maximum allowable value of the trust region step</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem.TRSubproblem.grad">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">grad</span></span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem.TRSubproblem.grad" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem.TRSubproblem.hess">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hess</span></span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem.TRSubproblem.hess" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem.TRSubproblem.trust_region_radius">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trust_region_radius</span></span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem.TRSubproblem.trust_region_radius" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-StochasticDFO.trust_region.tr_subproblem_exact">
+<span id="stochasticdfo-trust-region-tr-subproblem-exact-module"></span><h2>StochasticDFO.trust_region.tr_subproblem_exact module<a class="headerlink" href="#module-StochasticDFO.trust_region.tr_subproblem_exact" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TRSubproblemExact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa_easy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa_hard</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">printlevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt_check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#StochasticDFO.trust_region.tr_subproblem.TRSubproblem" title="StochasticDFO.trust_region.tr_subproblem.TRSubproblem"><code class="xref py py-class docutils literal notranslate"><span class="pre">TRSubproblem</span></code></a></p>
+<p>Class to solve the trust region subproblem exactly.
+The gradient, Hessian, and trust region radius
+are stored in  the attributes <code class="docutils literal notranslate"><span class="pre">grad</span></code>, <code class="docutils literal notranslate"><span class="pre">hessian</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">trust_region_radius</span></code>, respectively.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.dim">
+<span class="sig-name descname"><span class="pre">dim</span></span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.dim" title="Link to this definition"></a></dt>
+<dd><p>Dimension of the space</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.kappa_easy">
+<span class="sig-name descname"><span class="pre">kappa_easy</span></span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.kappa_easy" title="Link to this definition"></a></dt>
+<dd><p>Parameter used to determine the stopping criteria
+for the easy case in the trust region subproblem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float; optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.kappa_hard">
+<span class="sig-name descname"><span class="pre">kappa_hard</span></span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.kappa_hard" title="Link to this definition"></a></dt>
+<dd><p>Parameter used to determine the stopping criteria
+for the hard case in the trust region subproblem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float; optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.tol">
+<span class="sig-name descname"><span class="pre">tol</span></span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.tol" title="Link to this definition"></a></dt>
+<dd><p>Tolerance parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float; optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.printlevel">
+<span class="sig-name descname"><span class="pre">printlevel</span></span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.printlevel" title="Link to this definition"></a></dt>
+<dd><p>The level of verbosity of the output. Takes values
+1,2, and 3, with 1 being the minimum level of verbosity,
+and 3 the maximum level of verbosity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int; optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.opt_check">
+<span class="sig-name descname"><span class="pre">opt_check</span></span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.opt_check" title="Link to this definition"></a></dt>
+<dd><p>If True, calculates the degree of violation of the
+optimality measure for the trust region subproblem
+solution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool; optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.minimizer">
+<span class="sig-name descname"><span class="pre">minimizer</span></span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.minimizer" title="Link to this definition"></a></dt>
+<dd><p>The minimizer of the subproblem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.multiplier">
+<span class="sig-name descname"><span class="pre">multiplier</span></span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.multiplier" title="Link to this definition"></a></dt>
+<dd><p>The dual solution of the trust region subproblem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.optimality_measure">
+<span class="sig-name descname"><span class="pre">optimality_measure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.optimality_measure" title="Link to this definition"></a></dt>
+<dd><p>Checks for the optimality conditions on the solution returned by the
+solve method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>out</strong> – The maximum violation of the optimality measure.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trust_region_radius</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.tr_subproblem_exact.TRSubproblemExact.solve" title="Link to this definition"></a></dt>
+<dd><p>Solves the trust region subproblem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>grad</strong> (<em>Numpy array</em>) – Gradient</p></li>
+<li><p><strong>hess</strong> (<em>Numpy array</em>) – Hessian matrix</p></li>
+<li><p><strong>trust_region_radius</strong> (<em>float</em>) – The maximum allowable value of the trust region step</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-StochasticDFO.trust_region.trust_region">
+<span id="stochasticdfo-trust-region-trust-region-module"></span><h2>StochasticDFO.trust_region.trust_region module<a class="headerlink" href="#module-StochasticDFO.trust_region.trust_region" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.trust_region.RegTR">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RegTR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.trust_region.RegTR" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Regression-based trust region</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.trust_region.RegTR.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#StochasticDFO.trust_region.trust_region.RegTR.model" title="Link to this definition"></a></dt>
+<dd><p>Instance of class BaseModel or its child.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>BaseModel object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.trust_region.RegTR.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#StochasticDFO.trust_region.trust_region.RegTR.x" title="Link to this definition"></a></dt>
+<dd><p>Current iterate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.trust_region.RegTR.options">
+<span class="sig-name descname"><span class="pre">options</span></span><a class="headerlink" href="#StochasticDFO.trust_region.trust_region.RegTR.options" title="Link to this definition"></a></dt>
+<dd><p>Trust region solver options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict; optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.trust_region.RegTR.dim">
+<span class="sig-name descname"><span class="pre">dim</span></span><a class="headerlink" href="#StochasticDFO.trust_region.trust_region.RegTR.dim" title="Link to this definition"></a></dt>
+<dd><p>Dimension of the space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.trust_region.RegTR.iter_counter">
+<span class="sig-name descname"><span class="pre">iter_counter</span></span><a class="headerlink" href="#StochasticDFO.trust_region.trust_region.RegTR.iter_counter" title="Link to this definition"></a></dt>
+<dd><p>Current iteration counter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.trust_region.RegTR.rho">
+<span class="sig-name descname"><span class="pre">rho</span></span><a class="headerlink" href="#StochasticDFO.trust_region.trust_region.RegTR.rho" title="Link to this definition"></a></dt>
+<dd><p>Model improvement ratio.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.trust_region.RegTR.model_minimizer">
+<span class="sig-name descname"><span class="pre">model_minimizer</span></span><a class="headerlink" href="#StochasticDFO.trust_region.trust_region.RegTR.model_minimizer" title="Link to this definition"></a></dt>
+<dd><p>The minimizer of the model function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.trust_region.RegTR.initial_grad_norm">
+<span class="sig-name descname"><span class="pre">initial_grad_norm</span></span><a class="headerlink" href="#StochasticDFO.trust_region.trust_region.RegTR.initial_grad_norm" title="Link to this definition"></a></dt>
+<dd><p>The norm of initial model gradient</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.trust_region.RegTR.trsubprob">
+<span class="sig-name descname"><span class="pre">trsubprob</span></span><a class="headerlink" href="#StochasticDFO.trust_region.trust_region.RegTR.trsubprob" title="Link to this definition"></a></dt>
+<dd><p>Instance of class TRSubproblem or its child</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TRSubproblem object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">The</span> <span class="pre">options</span> <span class="pre">are</span></span></dt>
+<dd><dl class="simple">
+<dt>trust_region_radius: float</dt><dd><p>Initial trust region radius</p>
+</dd>
+<dt>trust_region_radius_min: float</dt><dd><p>Minimum value of trust region radius.
+If the trust region radius falls below
+this value, the algorithm stops.</p>
+</dd>
+<dt>trust_region_radius_max: flaot</dt><dd><p>Maximum value of trust region radius.
+The algorithm never computes steps larger
+than this value.</p>
+</dd>
+<dt>gamma_0: float</dt><dd><p>Factor by which the trust region radius will
+be scaled down. This parameter takes values in (0,1).</p>
+</dd>
+<dt>gamma_1: float</dt><dd><p>Factor by which the trust region radius will
+be scaled up. The relationship between gamma_0
+and gamma_1 satisfies
+0 &lt; gamma_0 &lt; 1 &lt; gamma_1.</p>
+</dd>
+<dt>eta_0: float</dt><dd><p>Minimum trust region acceptance for proposed step.</p>
+</dd>
+<dt>eta_1: float</dt><dd><p>Maximum trust region acceptance for proposed step.
+The relationship between eta_0 and eta_1 satisfies
+0 &lt; eta_0 &lt; eta_1.</p>
+</dd>
+<dt>max_iter: int</dt><dd><p>Maximum number of iterations to perform.</p>
+</dd>
+<dt>abs_tol: float</dt><dd><p>Absolute tolerance used to check the convergence
+of gradient norm.</p>
+</dd>
+<dt>rel_tol: float</dt><dd><p>Relative tolerance used to check the convergence
+of gradient norm.</p>
+</dd>
+<dt>printlevel: int</dt><dd><p>The level of verbosity of the output. Takes values
+1,2, and 3, with 1 being the minimum level of verbosity,
+and 3 the maximum level of verbosity.</p>
+</dd>
+<dt>kappa_easy: float</dt><dd><p>Parameter used to determine the stopping criteria in the
+trust region subproblem solver.</p>
+</dd>
+<dt>kappa_hard: float</dt><dd><p>Parameter used to determine the stopping criteria in the
+trust region subproblem solver.</p>
+</dd>
+<dt>subprob_max_iter: int</dt><dd><p>Maximum number of iterations to perform in the trust
+region subproblem solver.</p>
+</dd>
+<dt>subprob_regularization: float</dt><dd><p>Regularizer parameter for the trust region subproblem
+solver.</p>
+</dd>
+<dt>subprob_opt_check: bool</dt><dd><p>If True, calculates the degree of violation of the
+optimality measure for the trust region subproblem
+solution.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.trust_region.RegTR.check_convergence">
+<span class="sig-name descname"><span class="pre">check_convergence</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.trust_region.RegTR.check_convergence" title="Link to this definition"></a></dt>
+<dd><p>Checks for termination criteria.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>out</strong> – Return True if the termination criteria is satisfied
+and False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.trust_region.RegTR.compute_rho">
+<span class="sig-name descname"><span class="pre">compute_rho</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.trust_region.RegTR.compute_rho" title="Link to this definition"></a></dt>
+<dd><p>Computes the ratio of actual function reduction to model reduction.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.trust_region.RegTR.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.trust_region.RegTR.solve" title="Link to this definition"></a></dt>
+<dd><p>Solves the trust region problem</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StochasticDFO.trust_region.trust_region.RegTR.update_trust_region">
+<span class="sig-name descname"><span class="pre">update_trust_region</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#StochasticDFO.trust_region.trust_region.RegTR.update_trust_region" title="Link to this definition"></a></dt>
+<dd><p>Updates the current iterate and trust region radius.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-StochasticDFO.trust_region">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-StochasticDFO.trust_region" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="StochasticDFO.stochastic_objective.html" class="btn btn-neutral float-left" title="StochasticDFO.stochastic_objective package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="StochasticDFO.trust_region.model_options.html" class="btn btn-neutral float-right" title="StochasticDFO.trust_region.model_options package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, SR,JM,AK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
